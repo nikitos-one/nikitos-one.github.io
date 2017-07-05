@@ -43,35 +43,35 @@
 	</body>
 	<script src="libs/pica/dist/pica.min.js"></script>
 	<script>
-	//Загрузка изображения
-		var image = new Image();
-		image.src = 'img/border.png';
-		
-	//Прорисовка canvas без оптимизации
+		//Получаем canvas
 		var canvas = document.querySelector('#canvas');
 		var context = canvas.getContext('2d');
 
-		var scale = canvas.clientWidth / image.width;
-		
-		image.onload = function () {
-			context.scale(scale, scale);
-			context.drawImage(image,0,0);
-		};
+		var canvas_opt = document.querySelector('#canvas_opt');
+		canvas_opt.style.height = "auto";
 
-	//Прорисовка canvas после оптимизации
-		var canvas1 = document.querySelector('#canvas1');
-		var prevCanvasHeight = canvas1.clientHeight;
-		canvas1.clientHeight = 'auto';
-		
+		//Получаем pica
 		const pica = window.pica();
 
-		pica.resize(image, canvas1, {
-		  unsharpAmount: 100,
-		  unsharpRadius: 0.6,
-		  unsharpThreshold: 2,
-		  alpha: true
-		});
+		//Загружаем изображение
+		var image = new Image();
+		image.src = 'img/border.png';
 
-		canvas1.height = prevCanvasHeight;
+		//После загрузки изображения
+		image.onload = function () {
+			//коэфицент пропорциональности
+			var scale = canvas.clientWidth / image.width; 
+
+			//Обработка и вывод в canvas_opt, не удалось задать пропорции, пришлось выстраивать высоту canvas автоматически
+			pica.resize(image, canvas_opt, {
+				unsharpAmount: 100,
+				unsharpRadius: 0.6,
+				unsharpThreshold: 2,
+				alpha: true
+			});
+
+			//Вывод в canvas без обработки
+			context.drawImage(image, 0, 0, image.width * scale, image.height * scale);
+		};
 	</script>
 </html>
