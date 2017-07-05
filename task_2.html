@@ -43,14 +43,16 @@
 	</body>
 	<script src="libs/pica/dist/pica.min.js"></script>
 	<script>
+	//Загрузка изображения
+		var image = new Image();
+		image.src = 'img/border.png';
+		
 	//Прорисовка canvas без оптимизации
 		var canvas = document.querySelector('#canvas');
 		var context = canvas.getContext('2d');
 
-		var image = new Image();
-		image.src = 'img/border.png';
-
 		var scale = canvas.clientWidth / image.width;
+		
 		image.onload = function () {
 			context.scale(scale, scale);
 			context.drawImage(image,0,0);
@@ -60,13 +62,10 @@
 		var canvas1 = document.querySelector('#canvas1');
 		var prevCanvasHeight = canvas1.clientHeight;
 		canvas1.clientHeight = 'auto';
-
-		var img = new Image();
-		img.src = 'img/border.png';
-		 
+		
 		const pica = window.pica();
 
-		pica.resize(img, canvas1, {
+		pica.resize(image, canvas1, {
 		  unsharpAmount: 100,
 		  unsharpRadius: 0.6,
 		  unsharpThreshold: 2,
