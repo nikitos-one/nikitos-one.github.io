@@ -40,13 +40,12 @@
 			</section>
 		</div>
 	</body>
-	<script src="libs/pica/dist/pica.min.js"></script>
 	<script>
 		var canvas = document.querySelector('#canvas');
 		var context = canvas.getContext('2d');
 
 		var image = new Image();
-		image.src = 'border.png';
+		image.src = 'img/border.png';
 		image.onload = function () {
 			var scale = canvas.clientWidth / image.width;	//Коэфицент пропорциональности
 			var padding = (canvas.clientHeight - image.height * scale) / 2;	//Отсуп для центрирования в canvas
