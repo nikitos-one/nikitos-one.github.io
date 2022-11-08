@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c28cf688.css",
+    "main.js": "/static/js/main.d9e9bf2b.js",
+    "static/media/Raleway-Italic.ttf": "/static/media/Raleway-Italic.197b0909341ed79baeb0.ttf",
+    "static/media/Raleway.ttf": "/static/media/Raleway.859505cb02fdfbe3bc98.ttf",
+    "static/media/CV Nikita Popov - Fullstack developer (React, Vue.js, Laravel).pdf": "/static/media/CV Nikita Popov - Fullstack developer (React, Vue.js, Laravel).91dc30561d4d6cc20736.pdf",
+    "index.html": "/index.html",
+    "main.c28cf688.css.map": "/static/css/main.c28cf688.css.map",
+    "main.d9e9bf2b.js.map": "/static/js/main.d9e9bf2b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c28cf688.css",
+    "static/js/main.d9e9bf2b.js"
+  ]
+}
